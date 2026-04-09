@@ -27,6 +27,7 @@ go mod tidy
 | `DSN` | `root:123456@tcp(127.0.0.1:3306)/dianpu?charset=utf8mb4&parseTime=True&loc=Local` | MySQL 连接串 |
 | `JWT_SECRET` | `dianpu-secret-key` | JWT 签名密钥 |
 | `PORT` | `:8080` | 监听端口 |
+| `CORS_ORIGINS` | `*` | 允许跨域的来源（生产环境建议设置为具体域名） |
 
 启动前需先创建数据库：
 
