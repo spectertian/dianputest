@@ -110,6 +110,11 @@ func UpdateShop(id uint, req ShopRequest) (*model.Shop, error) {
 	if err := database.DB.Model(&shop).Updates(updates).Error; err != nil {
 		return nil, &ShopError{HTTPCode: http.StatusInternalServerError, Message: "更新商铺失败"}
 	}
+
+	// Reload from database to get updated values
+	if err := database.DB.First(&shop, id).Error; err != nil {
+		return nil, &ShopError{HTTPCode: http.StatusInternalServerError, Message: "查询商铺失败"}
+	}
 	return &shop, nil
 }
 

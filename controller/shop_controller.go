@@ -27,7 +27,7 @@ func ListShops(c *gin.Context) {
 }
 
 func GetShop(c *gin.Context) {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {
 		utils.Fail(c, http.StatusBadRequest, "无效的商铺 ID")
 		return
@@ -66,7 +66,7 @@ func CreateShop(c *gin.Context) {
 }
 
 func UpdateShop(c *gin.Context) {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {
 		utils.Fail(c, http.StatusBadRequest, "无效的商铺 ID")
 		return
@@ -91,7 +91,7 @@ func UpdateShop(c *gin.Context) {
 }
 
 func DeleteShop(c *gin.Context) {
-	id, err := strconv.ParseUint(c.Param("id"), 10, 64)
+	id, err := strconv.ParseUint(c.Param("id"), 10, 32)
 	if err != nil {
 		utils.Fail(c, http.StatusBadRequest, "无效的商铺 ID")
 		return

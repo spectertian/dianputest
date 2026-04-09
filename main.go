@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/spectertian/dianputest/config"
@@ -24,12 +23,6 @@ func main() {
 			c.AbortWithStatus(204)
 			return
 		}
-		c.Next()
-	})
-
-	// Request timeout
-	r.Use(func(c *gin.Context) {
-		c.Set("startTime", time.Now())
 		c.Next()
 	})
 
